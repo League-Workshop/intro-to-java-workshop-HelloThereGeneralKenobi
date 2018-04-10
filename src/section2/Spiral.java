@@ -6,20 +6,23 @@ public class Spiral {
 
 	public static void main(String[] args) {
 		// 1. Create a new Robot
-		
+		Robot owo = new Robot();
 		// 5. Set your robot's pen down 
+		owo.penDown();
 		
+		owo.hide();
 		// 3. Set the robot to go at max speed (10)
-		
+		owo.setSpeed(200);
 		// 4. Use a for loop to repeat steps #7 to #8, 75 times
-		
+		for(int i = 0; i < 74; i++) {
 			// 7. Change the pen color to random
-		
+			owo.setPenColor(i^2, 100, i*5);
 			// 6. Move the robot 5 times the current line number you are drawing (5*i)
-			
+			owo.move(5*i);
 			// 2. Turn the robot 360/7 degrees to the right
-		
+			owo.turn(360/7);
 			// 8. Set the pen width to i
-			
+			owo.setPenWidth(i);
+		}
 	}
 }

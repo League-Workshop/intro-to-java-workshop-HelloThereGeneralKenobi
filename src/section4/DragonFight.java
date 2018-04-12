@@ -12,17 +12,49 @@ public class DragonFight {
 		
 		JOptionPane.showMessageDialog(null, "Defeat the dragon to take its treasure!", "Dragon Fighter", 0, dragon);
 		// 2. Create a variable called "playerHealth" to store your health (set it equal to 100)
-	
+		int playerHealth = 100;
 		// 3. Create a variable called "dragonHealth" to store the dragon's health (set it equal to 100)
-		
+		int dragonHealth = 100;
 		// 4. Create a variable to hold the damage the player's attack does each round
-		
+		int playerDamage = 0;
 		// 5. Create a variable to hold the damage the dragon's attack does each round
-		
-		
+		int dragonDamage = 0;
+		Random RNGesus = new Random();
+		int damage;
 		// 6.  Delete the slashes at the beginning of the next line.  
 		//while(playerHealth>0 && dragonHealth>0) {    //this line of code keeps the battle going until someone's health reaches 0 
-		
+		while(playerHealth>0 && dragonHealth>0) {
+			String answer = JOptionPane.showInputDialog(null, "Yell or Kick?");
+			if(answer.equalsIgnoreCase("Yell")) {
+				
+				damage = RNGesus.nextInt(11)+5;
+				dragonHealth = dragonHealth - damage;
+				JOptionPane.showMessageDialog(null, "You vigorusly yell at the dragon and it takes " + damage + " damage");
+			}
+			if(answer.equalsIgnoreCase("Kick")) {
+				int damage2 = RNGesus.nextInt(26);
+				dragonHealth = dragonHealth - damage2;
+				JOptionPane.showMessageDialog(null, "You kick the dragon and it takes " + damage2 + " damage");
+			}
+			//else {
+			//	JOptionPane.showMessageDialog(null, "INCORRECT");
+			//}
+			playerDamage = RNGesus.nextInt(36);
+			playerHealth = playerHealth - playerDamage;
+			
+			JOptionPane.showMessageDialog(null, "The dragon breaths on you and you take " + playerDamage + " damage");
+			
+			if(playerHealth <= 0) {
+				JOptionPane.showMessageDialog(null, "You've activated my trap card! Once your health points are below or equal to 0 you lose! Hahahaha");
+			}
+			else if(dragonHealth <= 0) {
+				JOptionPane.showMessageDialog(null, "You've gathered all five pieces of Exodia, Exodia obliterates the dragon. The dragon has been banished to the shadow realm. You win!");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Player Health =" + playerHealth + "\n Dragon Health = " + dragonHealth);
+			}
+			
+		}
 		// 7. Add a closing mustache at the very bottom of this program (since we just added an opening mustache on the previous step).
 		
 		// 8. Ask the player in a pop-up if they want to attack the dragon with a yell or a kick
